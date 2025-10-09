@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/core/const/colors/colors.dart';
+import 'package:e_commerce_app/features/auth/view/login_view.dart';
 import 'package:e_commerce_app/features/onboarding/view/widget/onboarding_list.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -19,7 +21,7 @@ class _OnboardingViewState extends State<OnboardingView> {
     return Scaffold(
       body: Column(
         children: [
-          // ✅ PageView
+          
           Expanded(
             child: PageView.builder(
               controller: _pageController,
@@ -75,12 +77,12 @@ class _OnboardingViewState extends State<OnboardingView> {
 
           const SizedBox(height: 10),
 
-          // ✅ SmoothPageIndicator
+         
           SmoothPageIndicator(
             controller: _pageController,
             count: onboardingList.length,
             effect: ExpandingDotsEffect(
-              activeDotColor:  Color(0xff1B5E37),
+              activeDotColor:  AppColor.kPrimaryColor,
               dotColor: Color(0xff5DB957),
               dotHeight: 10,
               dotWidth: 10,
@@ -90,14 +92,17 @@ class _OnboardingViewState extends State<OnboardingView> {
 
           const SizedBox(height: 30),
 
-          // ✅ "Get Started" Button on last page only
+          
           if (_currentIndex == onboardingList.length - 1)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: Navigate to the next screen (e.g. LoginView)
-                  // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginView()));
+                  Navigator.push(context, MaterialPageRoute(builder: 
+                  (BuildContext context)
+                  {
+                    return const LoginView();
+                  }));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
@@ -108,7 +113,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                 ),
                 child: const Text(
                   "Get Started",
-                  style: TextStyle(fontSize: 18, color: Color(0xff1B5E37),),
+                  style: TextStyle(fontSize: 18, color: AppColor.kPrimaryColor,),
                 ),
               ),
             ),
