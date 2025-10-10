@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/features/auth/view/login_view.dart';
+import 'package:e_commerce_app/features/auth/view/register_view.dart';
 import 'package:e_commerce_app/features/onboarding/view/onboarding_view.dart';
 import 'package:e_commerce_app/features/splash/view/splash_view.dart';
 import 'package:flutter/material.dart';

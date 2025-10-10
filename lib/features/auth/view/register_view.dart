@@ -3,12 +3,9 @@ import 'package:e_commerce_app/core/widgets/text_form_field.dart';
 import 'package:e_commerce_app/features/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
-  //intel pacg
-  //حاجات ف التبندنسي
-  //نظبط المين
-  //flutter intel add local
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +15,7 @@ class LoginView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "Welcome Back",
+              "Create Account",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -26,7 +23,7 @@ class LoginView extends StatelessWidget {
               ),
             ),
             const Text(
-              "we're excited to have you back, can't wait to see what you've been up to since you last logged in.",
+              "Sign up now and start exploring all that our app has to offer. we're excited to welcome you to our community!",
               style: TextStyle(
                 fontSize: 13,
                 height: 1.6,
@@ -34,27 +31,13 @@ class LoginView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-
+            CustomTextField(label: "Username", icon: Icons.person),
+            SizedBox(height: 20),
             CustomTextField(label: "Email", icon: Icons.email),
             SizedBox(height: 20),
-            CustomTextField(
-              label: "Password",
-              icon: Icons.visibility,
-              isPassword: true,
-            ),
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                "Forget Password?",
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  fontSize: 12,
-                  color: AppColor.kPrimaryColor,
-                ),
-              ),
-            ),
-
+            CustomTextField(label: "Password", icon: Icons.visibility),
+            SizedBox(height: 20),
+            CustomTextField(label: "Phone Nunber", icon: Icons.phone),
             SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -65,15 +48,18 @@ class LoginView extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeView()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeView()),
+                );
               },
               child: Text(
-                "Login",
+                "Create Account",
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
 
-             SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               children: [
                 Expanded(child: Divider(color: Colors.grey, thickness: 1)),
