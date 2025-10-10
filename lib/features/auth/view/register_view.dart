@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/const/colors/colors.dart';
 import 'package:e_commerce_app/core/widgets/text_form_field.dart';
+import 'package:e_commerce_app/features/auth/view/login_view.dart';
 import 'package:e_commerce_app/features/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class RegisterView extends StatelessWidget {
             SizedBox(height: 20),
             CustomTextField(label: "Email", icon: Icons.email),
             SizedBox(height: 20),
-            CustomTextField(label: "Password", icon: Icons.visibility),
+            CustomTextField(label: "Password", icon: Icons.visibility,isPassword: true,),
             SizedBox(height: 20),
             CustomTextField(label: "Phone Nunber", icon: Icons.phone),
             SizedBox(height: 20),
@@ -91,7 +92,9 @@ class RegisterView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Already have an account?", style: TextStyle(color: Colors.grey),),
-                TextButton(onPressed: (){}, child: Text("Login", style: TextStyle(color: AppColor.kPrimaryColor),))
+                TextButton(onPressed: (){
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginView()));
+                }, child: Text("Login", style: TextStyle(color: AppColor.kPrimaryColor),))
               ],
             )
           ],

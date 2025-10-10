@@ -6,7 +6,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      body: Column(
+        children: [
+          Text(
+            "Welcome Back!",
+            style: TextStyle(fontSize: 13, height: 1.6, color: Colors.black54),
+          ),
+        ],
+      ),
     );
   }
 }
