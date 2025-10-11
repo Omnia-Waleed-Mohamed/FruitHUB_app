@@ -28,7 +28,7 @@ class EcommerceApp extends StatelessWidget {
             ],
             locale: const Locale('en'),
             debugShowCheckedModeBanner: false,
-      home:HomeView() ,
+      home:LoginView() ,
       
     );
   }
