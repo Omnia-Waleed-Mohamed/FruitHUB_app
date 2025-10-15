@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "707473240457",
+    "project_id": "fruithup-app",
+    "storage_bucket": "fruithup-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707473240457:android:157b06aa6c3ae7f2993158",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb0p07cEDrWDkTA4FX9G0_bzYKxu9HY3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
