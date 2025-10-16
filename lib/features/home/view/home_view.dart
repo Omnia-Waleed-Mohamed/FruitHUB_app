@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/const/colors/colors.dart';
 import 'package:e_commerce_app/features/cart/view/cart_view.dart';
 import 'package:e_commerce_app/features/favorite/view/favorite_view.dart';
@@ -15,32 +14,31 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-
-
   int selectedIndex = 0;
 
   final List<Widget> pages = [
-    const HomeBodyWidget(), 
+    const HomeBodyWidget(),
     const FavoriteView(),
     const CartView(),
     const ProfileView(),
   ];
-
 
   void onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: selectedIndex == 0 ? const HomeAppBar() : null,
+      appBar: selectedIndex == 0 ? const HomeAppBar() : null,
       body: Padding(
-        padding: const EdgeInsets.only(left: 15,right: 15),
-        child: pages[selectedIndex],),
+        padding: const EdgeInsets.only(left: 15, right: 15),
+        child: pages[selectedIndex],
+      ),
 
-        bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         onTap: onItemTapped,
         type: BottomNavigationBarType.fixed,
@@ -69,10 +67,7 @@ class _HomeViewState extends State<HomeView> {
             label: "Profile",
           ),
         ],
-      )
+      ),
     );
   }
 }
-
-
-
