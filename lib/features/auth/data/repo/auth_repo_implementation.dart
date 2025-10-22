@@ -18,24 +18,42 @@ class AuthRepoImplementation extends AuthRepo {
     required String password,
   }) async {
     try {
-      
-    User user = await authServices.createNewAccount(email: email,password: password);
- 
-   UserModel userModel =UserModel.fromfirebaseuser(user);
+      User user = await authServices.createNewAccount(
+        email: email,
+        password: password,
+      );
 
+      UserModel userModel = UserModel.fromfirebaseuser(user);
 
-   UserEntity userEntity = userModel.toEntity();
+      UserEntity userEntity = userModel.toEntity();
 
-   return right(userEntity);
-
+      return right(userEntity);
     } on CustomException catch (e) {
-      
-   return left(FirebaseError(errorMessage: e.message)) ;  
+      return left(FirebaseError(errorMessage: e.message));
+    } catch (e) {
+      return left(FirebaseError(errorMessage: e.toString()));
     }
-    
-    catch (e) {
-      return left(FirebaseError(errorMessage: e.toString())) ; 
-    }
+  }
 
+  @override
+  Future<Either<Failure, UserEntity>> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      User user = await authServices.loginWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      UserModel userModel = UserModel.fromfirebaseuser(user);
+      UserEntity userEntity = userModel.toEntity();
+
+      return right(userEntity);
+    } on CustomException catch (e) {
+      return left(FirebaseError(errorMessage: e.message));
+    } catch (e) {
+      return left(FirebaseError(errorMessage: e.toString()));
+    }
   }
 }

@@ -43,5 +43,43 @@ class FirebaseAuthServices implements AuthServices {
       );
     }
   }
-}
 
+  @override
+  Future<User> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+
+      switch (e.code) {
+        case 'user-not-found':
+          errorMessage = 'No user found for that email.';
+          break;
+        case 'wrong-password':
+          errorMessage = 'Wrong password provided for that user.';
+          break;
+        case 'invalid-email':
+          errorMessage = 'Invalid email address.';
+          break;
+        case 'user-disabled':
+          errorMessage = 'This user account has been disabled.';
+          break;
+        default:
+          errorMessage = 'Login failed. Please try again.';
+      }
+
+      throw CustomException(message: errorMessage);
+    } catch (e) {
+      throw CustomException(
+        message: 'An unexpected error occurred. Please try again.',
+      );
+    }
+  }
+}
