@@ -1,4 +1,5 @@
 
+import 'package:e_commerce_app/core/services/getit.dart';
 import 'package:e_commerce_app/features/auth/view/register_view.dart';
 import 'package:e_commerce_app/features/home/view/home_view.dart';
 import 'package:e_commerce_app/firebase_options.dart';
@@ -15,6 +16,7 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+    getItSetup();
   runApp(const EcommerceApp());
 }
 
