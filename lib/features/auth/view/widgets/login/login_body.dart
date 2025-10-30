@@ -19,12 +19,14 @@ class LoginBody extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            CustomTextField(label: "Email", icon: Icons.email),
+            CustomTextField(label: "Email", icon: Icons.email,
+            onChanged: (value){},),
             SizedBox(height: 20),
             CustomTextField(
               label: "Password",
               icon: Icons.visibility,
               isPassword: true,
+              onChanged: (value){},
             ),
             SizedBox(height: 10),
             ForgetPassword(),

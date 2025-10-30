@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce_app/core/errors/custom_exption.dart';
 import 'package:e_commerce_app/core/services/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,8 +20,10 @@ class FirebaseAuthServices implements AuthServices {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       String errorMessage;
+      log('error form creteuser$e');
 
       switch (e.code) {
+        
         case 'email-already-in-use':
           errorMessage = 'This email is already registered.';
           break;
@@ -38,6 +42,8 @@ class FirebaseAuthServices implements AuthServices {
 
       throw CustomException(message: errorMessage);
     } catch (e) {
+       log('error form creteuser$e');
+
       throw CustomException(
         message: 'An unexpected error occurred. Please try again.',
       );

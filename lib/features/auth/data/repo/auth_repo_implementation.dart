@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/core/errors/custom_exption.dart';
 import 'package:e_commerce_app/core/errors/failure.dart';
@@ -31,6 +32,8 @@ class AuthRepoImplementation extends AuthRepo {
     } on CustomException catch (e) {
       return left(FirebaseError(errorMessage: e.message));
     } catch (e) {
+      log('error form creteuser$e');
+
       return left(FirebaseError(errorMessage: e.toString()));
     }
   }

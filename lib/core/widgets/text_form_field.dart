@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:e_commerce_app/core/const/colors/colors.dart';
 
@@ -6,6 +7,7 @@ class CustomTextField extends StatefulWidget {
   final IconData icon;
   final bool isPassword;
   final TextEditingController? controller;
+  final ValueChanged<String>? onChanged; 
 
   const CustomTextField({
     super.key,
@@ -13,6 +15,7 @@ class CustomTextField extends StatefulWidget {
     required this.icon,
     this.isPassword = false,
     this.controller,
+    this.onChanged, 
   });
 
   @override
@@ -27,6 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       controller: widget.controller,
       obscureText: widget.isPassword ? _obscureText : false,
+      onChanged: widget.onChanged, 
       decoration: InputDecoration(
         suffixIcon: widget.isPassword
             ? IconButton(
@@ -55,3 +59,4 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 }
+
