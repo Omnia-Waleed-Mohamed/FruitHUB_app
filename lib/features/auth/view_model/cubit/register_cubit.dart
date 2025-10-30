@@ -10,11 +10,14 @@ class RegisterCubit extends Cubit<RegisterState> {
   final AuthRepo authRepo;
 
   Future<void> createUserWithEmailAndPassword({
+    required String name,
     required String email,
     required String password,
   }) async {
     emit(RegisterLoading());
+    
     var result = await authRepo.createUserWithEmailAndPassword(
+      name: name, 
       email: email,
       password: password,
     );
