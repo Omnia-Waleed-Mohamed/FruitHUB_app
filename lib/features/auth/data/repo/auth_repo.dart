@@ -15,4 +15,6 @@ abstract class AuthRepo {
   });
 
   Future<void> addUserData({required UserEntity userEntity});
+
+  
 }

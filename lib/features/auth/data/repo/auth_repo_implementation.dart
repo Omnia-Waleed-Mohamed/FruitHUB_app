@@ -30,18 +30,11 @@ class AuthRepoImplementation extends AuthRepo {
         email: email,
         password: password,
       );
+        UserEntity userEntity = UserEntity(name: name, email: email, id: user.uid);
+       await addUserData(userEntity: userEntity);
+       
 
-      
-      UserModel userModel = UserModel(
-        name: name,
-        email: email,
-        password: user.uid,
-      );
-
-      
-      await addUserData(userEntity: userModel.toEntity());
-
-      return right(userModel.toEntity());
+      return right(userEntity);
     } on CustomException catch (e) {
       return left(FirebaseError(errorMessage: e.message));
     } catch (e) {
@@ -70,11 +63,29 @@ class AuthRepoImplementation extends AuthRepo {
     }
   }
 
-  @override
-  Future<void> addUserData({required UserEntity userEntity}) async {
+//   @override
+//   Future<void> addUserData({required UserEntity userEntity}) async {
+//     await dataBaseService.addData(
+//       path: 'users',
+//       data: UserModel.fromEntity(userEntity).toMap(),
+//       dId:userEntity.id,
+//     );
+//   }
+// }
+
+
+@override
+Future<void> addUserData({required UserEntity userEntity}) async {
+  log('Starting to save user: ${userEntity.email} - ${userEntity.id}');
+  try {
     await dataBaseService.addData(
       path: 'users',
       data: UserModel.fromEntity(userEntity).toMap(),
+      dId: userEntity.id,
     );
+    log(' User saved successfully to Firestore!');
+  } catch (e) {
+    log(' Error saving user to Firestore: $e');
   }
+}
 }

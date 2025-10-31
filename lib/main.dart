@@ -1,5 +1,6 @@
 
 import 'package:e_commerce_app/core/services/getit.dart';
+import 'package:e_commerce_app/features/auth/view/login_view.dart';
 import 'package:e_commerce_app/features/auth/view/register_view.dart';
 import 'package:e_commerce_app/features/home/view/home_view.dart';
 import 'package:e_commerce_app/firebase_options.dart';
