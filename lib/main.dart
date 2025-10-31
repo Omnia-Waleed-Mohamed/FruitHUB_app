@@ -1,11 +1,11 @@
 
 import 'package:e_commerce_app/core/services/getit.dart';
-import 'package:e_commerce_app/features/auth/view/login_view.dart';
+import 'package:e_commerce_app/features/auth/data/entitys/user_entity.dart';
 import 'package:e_commerce_app/features/auth/view/register_view.dart';
-import 'package:e_commerce_app/features/home/view/home_view.dart';
 import 'package:e_commerce_app/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -17,6 +17,12 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserEntityAdapter());
+  //يعني محتاج اخزن ابجكت من النوع UserEntity ويكون اسمها يوزر 
+  await Hive.openBox<UserEntity>("users");
+
     getItSetup();
   runApp(const EcommerceApp());
 }

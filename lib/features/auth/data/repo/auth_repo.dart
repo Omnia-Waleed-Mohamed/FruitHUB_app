@@ -16,5 +16,8 @@ abstract class AuthRepo {
 
   Future<void> addUserData({required UserEntity userEntity});
 
+  Future<Either<Failure, UserEntity>> getUserData({required String userId});
+
+ Future saveUserEntity({required UserEntity userEntity});
   
 }

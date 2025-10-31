@@ -18,7 +18,7 @@ class RegisterView extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body:
-            //RegisterBody()
+            
             BlocConsumer<RegisterCubit, RegisterState>(
               listener: (context, state) {
                 if (state is RegisterSuccess) {

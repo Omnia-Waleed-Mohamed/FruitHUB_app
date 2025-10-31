@@ -4,7 +4,6 @@ import 'package:e_commerce_app/features/auth/view/widgets/login/first_text_login
 import 'package:e_commerce_app/features/auth/view/widgets/login/forget_password.dart';
 import 'package:e_commerce_app/features/auth/view/widgets/login/login_button.dart';
 import 'package:e_commerce_app/features/auth/view/widgets/login/or_sign_in.dart';
-import 'package:e_commerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LoginBody extends StatefulWidget {

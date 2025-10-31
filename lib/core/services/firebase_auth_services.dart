@@ -20,7 +20,7 @@ class FirebaseAuthServices implements AuthServices {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       String errorMessage;
-      log('error form creteuser$e');
+      // log('error form creteuser$e');
 
       switch (e.code) {
         
@@ -42,7 +42,7 @@ class FirebaseAuthServices implements AuthServices {
 
       throw CustomException(message: errorMessage);
     } catch (e) {
-       log('error form creteuser$e');
+      //  log('error form creteuser$e');
 
       throw CustomException(
         message: 'An unexpected error occurred. Please try again.',

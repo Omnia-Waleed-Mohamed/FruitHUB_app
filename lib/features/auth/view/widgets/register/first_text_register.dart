@@ -29,3 +29,4 @@ class FirstTextRegister extends StatelessWidget {
     );
   }
 }
+

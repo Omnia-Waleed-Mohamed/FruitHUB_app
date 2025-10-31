@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:e_commerce_app/features/auth/data/entitys/user_entity.dart';
 import 'package:e_commerce_app/features/auth/data/repo/auth_repo.dart';
 import 'package:meta/meta.dart';
-import 'package:dartz/dartz.dart';
+
 
 part 'login_state.dart';
 
