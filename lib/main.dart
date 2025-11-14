@@ -8,8 +8,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:e_commerce_app/features/home/view/home_view.dart';
 //https://www.figma.com/design/63McUtqoGPr1snEjObLQYi/Untitled?node-id=0-1&p=f&t=VHb2YT809KyrsixJ-0
+//https://www.behance.net/gallery/115391773/Fruit-Market-Online-Delivery-App-UI-kit
+//https://fakestoreapi.com/
 void main() async{
 
 
@@ -42,7 +44,7 @@ class EcommerceApp extends StatelessWidget {
             ],
             locale: const Locale('en'),
             debugShowCheckedModeBanner: false,
-      home: RegisterView(),
+      home: HomeView(),
       
     );
   }

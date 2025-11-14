@@ -39,10 +39,10 @@ class AuthRepoImplementation extends AuthRepo {
 
       return right(userEntity);
     } on CustomException catch (e) {
-      return left(FirebaseError(errorMessage: e.message));
+      return left(FirebaseError(errorMassage: e.message));
     } catch (e) {
       log('error from createUser: $e');
-      return left(FirebaseError(errorMessage: e.toString()));
+      return left(FirebaseError(errorMassage: e.toString()));
     }
   }
 
@@ -63,9 +63,9 @@ class AuthRepoImplementation extends AuthRepo {
 
       return userDataResult;
     } on CustomException catch (e) {
-      return left(FirebaseError(errorMessage: e.message));
+      return left(FirebaseError(errorMassage: e.message));
     } catch (e) {
-      return left(FirebaseError(errorMessage: e.toString()));
+      return left(FirebaseError(errorMassage: e.toString()));
     }
   }
 
@@ -98,10 +98,10 @@ class AuthRepoImplementation extends AuthRepo {
         final userModel = UserModel.fromMap(userData);
         return right(userModel.toEntity());
       } else {
-        return left(FirebaseError(errorMessage: 'User data not found'));
+        return left(FirebaseError(errorMassage: 'User data not found'));
       }
     } catch (e) {
-      return left(FirebaseError(errorMessage: e.toString()));
+      return left(FirebaseError(errorMassage: e.toString()));
     }
   }
 

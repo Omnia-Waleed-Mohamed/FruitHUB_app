@@ -23,7 +23,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
 
     result.fold(
-      (l) => emit(RegisterError(errorMessage: l.errorMessage)),
+      (l) => emit(RegisterError(errorMessage: l.errorMassage)),
       (r) => emit(RegisterSuccess(userEntity: r)),
     );
   }
