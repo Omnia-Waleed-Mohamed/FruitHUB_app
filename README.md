@@ -32,3 +32,6 @@ The app allows users to browse products, authenticate securely, and interact wit
 - Repository Pattern
 - Dartz (Either) for error handling
 - Custom Exception Handling & Logging
+
+<img width="932" height="526" alt="Image" src="https://github.com/user-attachments/assets/bfe4ebb9-b246-41ed-992e-11f2e79c96ec" />
+
